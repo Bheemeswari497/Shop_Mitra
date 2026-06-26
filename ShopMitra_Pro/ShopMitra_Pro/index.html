@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopMitra Pro - Professional Multi-Platform E-commerce Aggregator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__brand">
+                    <h1 class="header__title">🇮🇳 ShopMitra Pro</h1>
+                    <span class="header__subtitle">Compare • Save • Shop Smart Across All Platforms</span>
+                </div>
+                
+                <div class="header__search">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search iPhone 16, Galaxy S24, boAt earbuds...">
+                        <button class="search-voice-btn" id="voiceSearchBtn">🎤</button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+                
+                <div class="header__actions">
+                    <select class="form-control user-selector" id="userSelector">
+                        <option value="">Choose Your Profile</option>
+                        <option value="user1">🧑‍💻 Rahul - Tech Enthusiast (Mumbai)</option>
+                        <option value="user2">👩‍🎨 Priya - Fashion Lover (Delhi)</option>
+                        <option value="user3">💪 Anjali - Fitness Pro (Bangalore)</option>
+                        <option value="user4">👔 Vikram - Professional (Pune)</option>
+                    </select>
+                    <button class="cart-btn">🛒 <span class="cart-count">0</span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Platform Comparison Banner -->
+    <section class="platform-banner">
+        <div class="container">
+            <div class="platform-logos">
+                <div class="platform-item flipkart">📦 Flipkart</div>
+                <div class="platform-item amazon">🟠 Amazon</div>
+                <div class="platform-item croma">🔴 Croma</div>
+                <div class="platform-item vijay-sales">🟢 Vijay Sales</div>
+                <div class="platform-item samsung-store">🟣 Samsung Store</div>
+                <div class="platform-item myntra">🌸 Myntra</div>
+            </div>
+            <p class="platform-text">🔍 Compare the SAME PRODUCT across ALL major platforms • Find the BEST DEALS instantly</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Search Filters -->
+            <section class="filters-section" id="filtersSection">
+                <div class="filters-container">
+                    <div class="filters-group">
+                        <label class="filter-label">Category:</label>
+                        <select class="form-control filter-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="Electronics">📱 Electronics</option>
+                            <option value="Clothing">👕 Fashion & Clothing</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filters-group">
+                        <label class="filter-label">Price Range (₹):</label>
+                        <input type="range" class="price-range" id="priceRange" min="0" max="150000" value="150000" step="1000">
+                        <span class="price-display" id="priceDisplay">₹0 - ₹1,50,000</span>
+                    </div>
+                    
+                    <div class="filters-group">
+                        <label class="filter-label">Sort by:</label>
+                        <select class="form-control filter-select" id="sortBy">
+                            <option value="best-deal">🏆 Best Deal</option>
+                            <option value="price-low">💰 Lowest Price</option>
+                            <option value="fastest-delivery">🚚 Fastest Delivery</option>
+                            <option value="highest-rating">⭐ Top Rated</option>
+                            <option value="max-savings">💸 Maximum Savings</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filters-group">
+                        <label class="filter-label">Platform Selector:</label>
+                        <div class="platform-checkboxes" id="platformCheckboxes">
+                            <label class="platform-checkbox">
+                                <input type="checkbox" value="Flipkart" checked> Flipkart
+                            </label>
+                            <label class="platform-checkbox">
+                                <input type="checkbox" value="Amazon" checked> Amazon
+                            </label>
+                            <label class="platform-checkbox">
+                                <input type="checkbox" value="Croma" checked> Croma
+                            </label>
+                            <label class="platform-checkbox">
+                                <input type="checkbox" value="Myntra" checked> Myntra
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary filter-apply-btn" onclick="window.app.applyFilters()">
+                        Apply Filters
+                    </button>
+                </div>
+            </section>
+
+            <!-- Main Content Grid -->
+            <div class="content-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Deal Alerts -->
+                    <section class="deal-alerts-card card">
+                        <div class="card__header">
+                            <h3>🚨 Live Deal Alerts</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="deal-alert best-price">
+                                <div class="alert-icon">💰</div>
+                                <div class="alert-content">
+                                    <p class="alert-title">Best Price Alert</p>
+                                    <p class="alert-text">iPhone 16 lowest on Flipkart</p>
+                                </div>
+                            </div>
+                            <div class="deal-alert fast-delivery">
+                                <div class="alert-icon">🚚</div>
+                                <div class="alert-content">
+                                    <p class="alert-title">Fast Delivery</p>
+                                    <p class="alert-text">Amazon Prime 1-day delivery</p>
+                                </div>
+                            </div>
+                            <div class="deal-alert max-savings">
+                                <div class="alert-icon">💸</div>
+                                <div class="alert-content">
+                                    <p class="alert-title">Maximum Savings</p>
+                                    <p class="alert-text">Save ₹4,000 vs highest price</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Platform Comparison Stats -->
+                    <section class="platform-stats-card card">
+                        <div class="card__header">
+                            <h3>📊 Platform Statistics</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="platform-stat">
+                                <span class="platform-name">Flipkart</span>
+                                <span class="stat-badge best-price">Best Prices</span>
+                            </div>
+                            <div class="platform-stat">
+                                <span class="platform-name">Amazon</span>
+                                <span class="stat-badge fast-delivery">Fast Delivery</span>
+                            </div>
+                            <div class="platform-stat">
+                                <span class="platform-name">Samsung Store</span>
+                                <span class="stat-badge official-warranty">Official Warranty</span>
+                            </div>
+                            <div class="platform-stat">
+                                <span class="platform-name">Myntra</span>
+                                <span class="stat-badge easy-returns">Easy Returns</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Savings Calculator -->
+                    <section class="savings-calculator-card card">
+                        <div class="card__header">
+                            <h3>💰 Savings Calculator</h3>
+                        </div>
+                        <div class="card__body" id="savingsCalculator">
+                            <div class="savings-stat">
+                                <span class="savings-label">Total Products:</span>
+                                <span class="savings-value" id="totalProducts">0</span>
+                            </div>
+                            <div class="savings-stat">
+                                <span class="savings-label">Avg. Savings per Product:</span>
+                                <span class="savings-value" id="avgSavings">₹0</span>
+                            </div>
+                            <div class="savings-stat">
+                                <span class="savings-label">Best Platform:</span>
+                                <span class="savings-value" id="bestPlatform">-</span>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+
+                <!-- Main Product Area -->
+                <section class="products-section">
+                    <div class="products-header">
+                        <h2 class="products-title" id="productsTitle">🛍️ Professional Product Photography Showcase</h2>
+                        <div class="results-info">
+                            <div class="results-count" id="resultsCount"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="products-container" id="productsContainer">
+                        <!-- Products with professional images will be rendered here -->
+                    </div>
+                    
+                    <div class="loading-state hidden" id="loadingState">
+                        <div class="loading-spinner"></div>
+                        <p>🔍 Searching across all platforms...</p>
+                    </div>
+                    
+                    <div class="empty-state hidden" id="emptyState">
+                        <div class="empty-icon">🔍</div>
+                        <h3>No products found</h3>
+                        <p>Try searching for "iPhone 16", "Galaxy S24", or "boAt earbuds"</p>
+                        <button class="btn btn--secondary" onclick="window.app.resetFilters()">Reset Filters</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Image Zoom Modal -->
+    <div class="modal hidden" id="imageModal">
+        <div class="modal-overlay" id="imageModalOverlay"></div>
+        <div class="modal-content modal-content--image">
+            <button class="modal-close" id="imageModalClose">×</button>
+            <div class="image-modal-body">
+                <div class="image-gallery-container">
+                    <div class="main-image-container">
+                        <img id="modalMainImage" src="" alt="" class="modal-main-image">
+                    </div>
+                    <div class="image-thumbnails" id="imageThumbnails">
+                        <!-- High-quality thumbnails will be rendered here -->
+                    </div>
+                    <div class="image-navigation">
+                        <button class="image-nav-btn" id="prevImageBtn">‹</button>
+                        <button class="image-nav-btn" id="nextImageBtn">›</button>
+                    </div>
+                </div>
+                <div class="image-modal-details">
+                    <h3 id="modalProductName"></h3>
+                    <p id="modalProductBrand"></p>
+                    <div class="modal-price-info">
+                        <span id="modalBestPrice"></span>
+                        <span id="modalPlatformCount"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Selection Modal -->
+    <div class="modal hidden" id="platformModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="window.app.closePlatformModal()">×</button>
+            <div class="modal-body">
+                <h3>🛒 Choose Your Platform</h3>
+                <p>Select where you'd like to buy this product:</p>
+                <div class="platform-selection-grid" id="platformSelectionGrid">
+                    <!-- Platform options will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
